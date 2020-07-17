@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { ConsoleService } from "./console.service";
 
 @Injectable({
   providedIn: 'root'
@@ -6,14 +7,14 @@ import { Injectable, EventEmitter } from '@angular/core';
 export class NotificacionService {
   public mensaje: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private console:ConsoleService) { }
 
   mostrarMensaje(mensaje:string, segundos: number) :void{
     this.mensaje.emit(mensaje);
-    console.log("Notificacion: " + mensaje);
+    this.console.log("NotificacionService",mensaje);
     setTimeout(() => {
       this.mensaje.emit("");
-      console.log("Notificacion fin.")
+      this.console.log("NotificacionService","fin");
     }, segundos * 1000);
   }
 
