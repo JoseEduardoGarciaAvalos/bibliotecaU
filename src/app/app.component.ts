@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NotificacionService } from "./notificacion.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bibliotecaU';
+  
+  constructor(private notificacionService: NotificacionService) { }
+
+  ngOnInit() {
+    this.notificacionService.mostrarMensaje("Bienvenido a la biblioteca",3);
+  }
 }
