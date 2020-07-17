@@ -1,15 +1,19 @@
-<form>
+<form *ngIf="!auth.isLogin" (ngSubmit)="iniciar()">
     <div>
         <label for="correo">Login: </label>
-        <input type="email" id="coreeo" name="correo" required placeholder="Email" />
+        <input type="email" id="correo" name="correo" required placeholder="Email" 
+        [(ngModel)]="auth.cliente.correo"/>
     </div>
     <div>
         <label for="pass">Contraseña: </label>
-        <input type="password" id="pass" name="pass" required placeholder="Contraseña">
+        <input type="password" id="pass" name="pass" required placeholder="Contraseña" 
+        [(ngModel)]="auth.cliente.password"/>
     </div>
     <div>
         <input type="submit" value="Iniciar sesión">
     </div>
 </form>
-Hola (nombre) (apellido)
-<button>Desconectarse</button>
+<div *ngIf="auth.isLogin">
+    Hola {{auth.cliente.nombre}} {{auth.cliente.apellido}}
+    <button (click)="salir()">Desconectarse</button>
+</div>
