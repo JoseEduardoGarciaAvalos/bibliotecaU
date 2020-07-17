@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NotificacionService } from "./notificacion.service";
+import { UtilService } from "./util.service";
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,9 @@ import { NotificacionService } from "./notificacion.service";
 })
 export class AppComponent {
   
-  constructor(private notificacionService: NotificacionService) { }
+  constructor(private util: UtilService) { }
 
   ngOnInit() {
-    this.notificacionService.mostrarMensaje("Bienvenido a la biblioteca",3);
+    this.util.notificacion("Bienvenido a la biblioteca",3);
   }
 }

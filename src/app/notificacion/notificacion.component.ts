@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificacionService } from "../notificacion.service";
+import { UtilService } from "../util.service";
 
 @Component({
   selector: 'app-notificacion',
@@ -10,8 +10,8 @@ export class NotificacionComponent implements OnInit {
 
   private mensaje: string = "";
 
-  constructor(private notificacionService: NotificacionService) { 
-    this.notificacionService.mensaje.subscribe( (res) => {
+  constructor(private util: UtilService) { 
+    this.util.mensaje.subscribe( (res) => {
       this.mensaje = res;
     });
   }

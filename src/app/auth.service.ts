@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { ConsoleService } from "./console.service";
+import { UtilService } from "./util.service";
 import { Observable } from "rxjs";
-import { tap, catchError } from "rxjs/operators";
+import { tap } from "rxjs/operators";
 
 export interface Cliente {
   correo: string,
@@ -22,7 +22,7 @@ export class AuthService {
   constructor(
     //public isLogin: boolean = false //ERROR1
     private http: HttpClient,
-    private console: ConsoleService
+    private util: UtilService
   ) {
     this.cliente = AuthService.newCliente();
   }
@@ -33,25 +33,25 @@ export class AuthService {
 
   contectar(): Observable<any>{
     let url = AuthService.base + "/login=" + this.cliente.correo + "/password=" + this.cliente.password;
-    this.console.log("AuthService"," (contectar,req) " + url);
+    this.util.consola("AuthService"," (contectar,req) " + url);
     return this.http.get(url).pipe(
-      tap((res) => this.console.log("AuthService"," (contectar,res) " + url))
+      tap((res) => this.util.consola("AuthService"," (contectar,res) " + url))
     );
   }
 
   desconectar(){
     this.cliente = AuthService.newCliente();
-    this.console.log("AuthService"," (desconectar) ");
+    this.util.consola("AuthService"," (desconectar) ");
     this.isLogin = false;
   }
 
   testContectar(){
-    this.console.log("AuthService"," (testContectar) ");
+    this.util.consola("AuthService"," (testContectar) ");
     if(this.cliente.correo=="jose@gmail.com" && this.cliente.password=="1234"){
       this.cliente.nombre = "Jose";
       this.cliente.apellido = "Eduardo";
       this.isLogin = true;
-      this.console.log("AuthService"," (testContectar) Conectado");
+      this.util.consola("AuthService"," (testContectar) Conectado");
     }
   }
 }
