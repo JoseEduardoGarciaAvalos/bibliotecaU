@@ -1,1 +1,18 @@
-<p>lista works!</p>
+<table>
+    <tr>
+        <td>ISBN</td>
+        <td>Nombre</td>
+        <td>Autor</td>
+        <td>Editorial</td>
+        <td>Acciones</td>
+    </tr>
+    <tr *ngFor="let libro of libros">
+        <td>{{libro.isbn}}</td>
+        <td>{{libro.nombre}}</td>
+        <td>{{libro.autor}}</td>
+        <td>{{libro.editoriales}}</td>
+        <td>
+            <button (click)="accionGenerica($event, libro._id)">{{accion}</button>
+        </td>
+    </tr>
+</table>

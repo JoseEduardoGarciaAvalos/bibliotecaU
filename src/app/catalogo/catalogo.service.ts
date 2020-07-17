@@ -4,10 +4,11 @@ import { Observable } from "rxjs";
 import { UtilService } from "../util.service";
 
 export interface Libro {
-  ISBN: string,
-  Nombre: string,
-  Autor: string,
-  Editorial: Array<string>
+  _id: string,
+  isbn: string,
+  nombre: string,
+  autor: string,
+  editoriales: Array<string>
 }
 
 
@@ -38,46 +39,53 @@ export class CatalogoService {
 
   testgetLibros(): Object[] {
     return [
-      {
-        ISBN: "123435434",
-        Nombre: "Java 10",
-        Autor: "Francisco",
-        Editorial: ["ENI"]
+      { _id: "1",
+        isbn: "123435434",
+        nombre: "Java 10",
+        autor: "Francisco",
+        editoriales: ["ENI"]
       },{
-        ISBN: "233435434",
-        Nombre: "angular 8",
-        Autor: "Rosa Avalos",
-        Editorial: ["ENI"]
+        _id: "2",
+        isbn: "233435434",
+        nombre: "angular 8",
+        autor: "Rosa Avalos",
+        editoriales: ["ENI"]
       },{
-        ISBN: "243513235",
-        Nombre: "C++ Programación",
-        Autor: "Maria",
-        Editorial: ["Alfaomega","Marcombo"]
+        _id: "3",
+        isbn: "243513235",
+        nombre: "C++ Programación",
+        autor: "Maria",
+        editoriales: ["Alfaomega","Marcombo"]
       },{
-        ISBN: "88888",
-        Nombre: "Aprendiendo algoritmos",
-        Autor: "Zonia",
-        Editorial: ["Alfaomega"]
+        _id: "4",
+        isbn: "88888",
+        nombre: "Aprendiendo algoritmos",
+        autor: "Zonia",
+        editoriales: ["Alfaomega"]
       },{
-        ISBN: "112131",
-        Nombre: "Java programación",
-        Autor: "Pedro",
-        Editorial: ["Macro", "RCLibros"]
+        _id: "5",
+        isbn: "112131",
+        nombre: "Java programación",
+        autor: "Pedro",
+        editoriales: ["Macro", "RCLibros"]
       },{
-        ISBN: "34356346",
-        Nombre: "Estructuras de datos",
-        Autor: "Pablo",
-        Editorial: ["RCLibros"]
+        _id: "5",
+        isbn: "34356346",
+        nombre: "Estructuras de datos",
+        autor: "Pablo",
+        editoriales: ["RCLibros"]
       },{
-        ISBN: "35324124",
-        Nombre: "Programación web",
-        Autor: "Azucena",
-        Editorial: ["Marcombo", ]
+        _id: "6",
+        isbn: "35324124",
+        nombre: "Programación web",
+        autor: "Azucena",
+        editoriales: ["Marcombo", ]
       },{
-        ISBN: "23124",
-        Nombre: "Ruby",
-        Autor: "Pablo",
-        Editorial: ["Alfaomega", "RCLibros"]
+        _id: "7",
+        isbn: "23124",
+        nombre: "Ruby",
+        autor: "Pablo",
+        editoriales: ["Alfaomega", "RCLibros"]
       }
     ];
   }
