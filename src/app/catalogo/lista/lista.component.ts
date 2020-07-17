@@ -28,7 +28,7 @@ export class ListaComponent implements OnInit {
       } else {
         this.accion = "devolver";
       }
-      //general=>buscar prestamo=>buscar o 
+      this.libros = this.catalogoService.testgetLibros() as Libro[];
       
       this.util.consola("ListaComponent",[params]);
     });
