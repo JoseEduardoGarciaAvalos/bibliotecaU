@@ -35,7 +35,8 @@ export class ListaComponent implements OnInit {
   }
 
   accionGenerica(event: any){
-    event.target.hide= true;
+    event.target.disabled= true;
+    this.util.consola("ListaComponent", event);
     if(this.accion == "préstamo"){
       this.util.consola("ListaComponent", " (accionGenerica, préstamo)");
     } else {
