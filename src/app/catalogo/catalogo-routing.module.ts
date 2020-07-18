@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CatalogoComponent } from './catalogo.component';
 import { ListaComponent } from "./lista/lista.component";
+import { AuthGuardService} from "../auth-guard.service";
 
 const routes: Routes = [
   //{ path: '', component: CatalogoComponent },
   // // subruta /catalogo/:sublista/
-  { path: ":sublista", component: ListaComponent}
+  { path: "general", component: ListaComponent, data: {sublista:"general"}},
+  { path: "prestamo", component: ListaComponent,data: {sublista:"prestamo"}, canActivate: [AuthGuardService]},
 ];
 
 @NgModule({

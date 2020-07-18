@@ -20,17 +20,19 @@ export class ListaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // subruta /catalogo/:sublista/
-    this.route.params.subscribe( (params : Params) =>{
+    // subruta /catalogo/general|prestamo
+    this.route.data.subscribe( (data) => {
       //general o prestamo
-      if(params["sublista"] == "general"){
+      if(data["sublista"] == "general"){
         this.accion = "préstamo";
       } else {
         this.accion = "devolver";
       }
       this.libros = this.catalogoService.testgetLibros() as Libro[];
+    })
+
+    this.route.params.subscribe((params : Params) =>{
       
-      this.util.consola("ListaComponent",[params]);
     });
   }
 
