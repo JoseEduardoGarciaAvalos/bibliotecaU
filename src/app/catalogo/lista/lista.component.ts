@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CatalogoService, Libro } from "../catalogo.service";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { UtilService } from "../../util.service";
+import { AuthService } from "../../auth.service";
 
 @Component({
   selector: 'app-lista',
@@ -16,7 +17,8 @@ export class ListaComponent implements OnInit {
     private catalogoService: CatalogoService,
     private router: Router,
     private route: ActivatedRoute,
-    private util:UtilService
+    private util:UtilService,
+    private auth:AuthService
   ) { }
 
   ngOnInit() {
@@ -37,13 +39,20 @@ export class ListaComponent implements OnInit {
   }
 
   accionGenerica(event: any){
-    event.target.disabled= true;
-    this.util.consola("ListaComponent", event);
-    if(this.accion == "préstamo"){
-      this.util.consola("ListaComponent", " (accionGenerica, préstamo)");
+    //Esta logueado
+    if(this.auth.isLogin){
+      // FALTA Determinar si el libro ya lo tiene prestado
+      event.target.disabled= true;
+      this.util.consola("ListaComponent", event);
+      if(this.accion == "préstamo"){
+        this.util.consola("ListaComponent", " (accionGenerica, préstamo)");
+      } else {
+        this.util.consola("ListaComponent", " (accionGenerica, devolver)");
+      }
     } else {
-      this.util.consola("ListaComponent", " (accionGenerica, devolver)");
+      this.util.notificacion("Necesita estar logueado",3);
     }
+
   }
 
 }
