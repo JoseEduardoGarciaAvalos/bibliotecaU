@@ -30,10 +30,20 @@ export class ListaComponent implements OnInit {
       } else {
         this.accion = "devolver";
       }
-      this.libros = this.catalogoService.testgetLibros() as Libro[];
+      
     })
-
+   
     this.route.params.subscribe((params : Params) =>{
+      this.util.consola("ListaComponent", params["buscar"]);
+      if(params["buscar"] == undefined){
+        this.libros = this.catalogoService.testgetLibros() as Libro[];
+      } else {
+        this.libros = [];
+        let aux = this.catalogoService.testgetLibros() as Libro[];
+        for (let libro of aux)
+          if(libro.nombre.includes(params["buscar"])) this.libros.push(libro);
+        
+      }
       
     });
   }

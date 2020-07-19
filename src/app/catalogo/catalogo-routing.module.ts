@@ -9,6 +9,7 @@ const routes: Routes = [
   //{ path: '', component: CatalogoComponent },
   // // subruta /catalogo/:sublista/
   { path: "general", component: ListaComponent, data: {sublista:"general"}},
+  { path: "general/:buscar", component: ListaComponent, data: {sublista:"general"}},
   { path: "prestamo", component: ListaComponent,data: {sublista:"prestamo"}, canActivate: [AuthGuardService]},
 ];
 

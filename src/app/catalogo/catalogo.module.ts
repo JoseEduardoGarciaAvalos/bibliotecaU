@@ -12,6 +12,7 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
   imports: [
     CommonModule,
     CatalogoRoutingModule
-  ]
+  ],
+  exports: [BusquedaComponent]
 })
 export class CatalogoModule { }
