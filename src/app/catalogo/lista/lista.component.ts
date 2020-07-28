@@ -12,6 +12,7 @@ import { AuthService } from "../../auth.service";
 export class ListaComponent implements OnInit {
   public libros: Libro[] = [];
   public accion: string = "préstamo";
+  public selectLibroId = null;
 
   constructor(
     private catalogoService: CatalogoService,
@@ -63,6 +64,10 @@ export class ListaComponent implements OnInit {
       this.util.notificacion("Necesita estar logueado",3);
     }
 
+  }
+
+  setSelectedLibro(id:string){
+    this.selectLibroId = id;
   }
 
 }

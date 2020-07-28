@@ -1,1 +1,9 @@
-<p>libro works!</p>
+<div>
+    <p>Titulo: {{libro.nombre}}</p>
+    <p>Autor: {{libro.autor}}</p>
+    <ng-container *ngIf="expandido">
+        <p>ISBN: {{libro.isbn}}</p>
+        <p>Autor: {{libro.editoriales}}</p>
+    </ng-container>
+    <ng-content selector="button"></ng-content>
+</div>
