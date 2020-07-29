@@ -15,6 +15,12 @@
             "apellido": "Avalos"
         }
     ],
+    "prestamos": [
+        {
+            "_id_usuarios": "1",
+            "_id_libros": ["1", "2"]
+        }
+    ],
     "libros": [
         { "_id": "1",
           "isbn": "123435434",
