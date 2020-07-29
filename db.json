@@ -30,19 +30,19 @@
           "autor": "Pedro",
           "editoriales": ["Macro", "RCLibros"]
         },{
-          "_id": "5",
+          "_id": "6",
           "isbn": "34356346",
           "nombre": "Estructuras de datos",
           "autor": "Pablo",
           "editoriales": ["RCLibros"]
         },{
-          "_id": "6",
+          "_id": "7",
           "isbn": "35324124",
           "nombre": "Programación web",
           "autor": "Azucena",
           "editoriales": ["Marcombo"]
         },{
-          "_id": "7",
+          "_id": "8",
           "isbn": "23124",
           "nombre": "Ruby",
           "autor": "Pablo",
