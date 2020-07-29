@@ -1,4 +1,20 @@
 {
+    "usuarios":[
+        {
+            "_id": "1",
+            "correo": "jose@gmail.com",
+            "password": "1234",
+            "nombre": "Jose",
+            "apellido": "García"
+        },
+        {
+            "_id": "2",
+            "correo": "rosa@gmail.com",
+            "password": "1234",
+            "nombre": "Rosa",
+            "apellido": "Avalos"
+        }
+    ],
     "libros": [
         { "_id": "1",
           "isbn": "123435434",
