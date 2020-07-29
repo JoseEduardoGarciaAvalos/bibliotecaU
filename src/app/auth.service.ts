@@ -3,8 +3,10 @@ import { HttpClient } from "@angular/common/http";
 import { UtilService } from "./util.service";
 import { Observable } from "rxjs";
 import { tap } from "rxjs/operators";
+import { environment } from "src/environments/environment"
 
 export interface Cliente {
+  _id: string,
   correo: string,
   password: string,
   nombre?: string,
@@ -15,7 +17,7 @@ export interface Cliente {
   providedIn: 'root'
 })
 export class AuthService {
-  static base = "http://localhost:8888";
+  private readonly base = environment.urlREST;
   public isLogin: boolean = false;
   public cliente:Cliente = null;
 
@@ -28,11 +30,11 @@ export class AuthService {
   }
 
   static newCliente(): Cliente{
-    return { correo: "", password: ""};
+    return { _id: "", correo: "", password: ""};
   }
 
   contectar(): Observable<any>{
-    let url = AuthService.base + "/login=" + this.cliente.correo + "/password=" + this.cliente.password;
+    let url = this.base + "usuarios?correo=" + this.cliente.correo + "&password=" + this.cliente.password;
     this.util.consola("AuthService"," (contectar,req) " + url);
     return this.http.get(url).pipe(
       tap((res) => this.util.consola("AuthService"," (contectar,res) " + url))
@@ -45,15 +47,6 @@ export class AuthService {
     this.isLogin = false;
   }
 
-  testContectar(){
-    this.util.consola("AuthService"," (testContectar) ");
-    if(this.cliente.correo=="jose@gmail.com" && this.cliente.password=="1234"){
-      this.cliente.nombre = "Jose";
-      this.cliente.apellido = "Eduardo";
-      this.isLogin = true;
-      this.util.consola("AuthService"," (testContectar) Conectado");
-    }
-  }
 }
 
 

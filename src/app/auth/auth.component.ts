@@ -14,10 +14,13 @@ export class AuthComponent implements OnInit {
   }
 
   iniciar(){
-    this.auth.testContectar();
-    return;
     this.auth.contectar().subscribe(
-      (res) => { },
+      (res) => { 
+        if(res[0]){
+          this.auth.cliente = res[0];
+          this.auth.isLogin = true;
+        }
+      },
       //(error) => {this.auth.testContectar();}
     );
   }
