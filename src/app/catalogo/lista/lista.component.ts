@@ -37,13 +37,13 @@ export class ListaComponent implements OnInit {
     this.route.params.subscribe((params : Params) =>{
       this.util.consola("ListaComponent", params["buscar"]);
       if(params["buscar"] == undefined){
-        this.libros = this.catalogoService.testgetLibros() as Libro[];
+        this.catalogoService.getLibros().subscribe( res => {
+          this.libros =  res;
+        })
       } else {
-        this.libros = [];
-        let aux = this.catalogoService.testgetLibros() as Libro[];
-        for (let libro of aux)
-          if(libro.nombre.includes(params["buscar"])) this.libros.push(libro);
-        
+        this.catalogoService.getLibrosByKeyword(params["buscar"]).subscribe( res => {
+          this.libros =  res;
+        })
       }
       
     });
