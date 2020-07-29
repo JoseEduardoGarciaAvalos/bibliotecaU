@@ -12,6 +12,10 @@ export interface Libro {
   editoriales: Array<string>
 }
 
+export interface Prestamo {
+  _id_usuario: string,
+  _id_libros: Array<string>
+}
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +42,13 @@ export class CatalogoService {
 
   getLibrosByKeyword(keyword: string): Observable<any> {
     let url = this.base + "libros?q=" + keyword;
-    this.util.consola("CatalogoService", " (getLibrosById,req) " + url);
+    this.util.consola("CatalogoService", " (getLibrosByKeyword,req) " + url);
+    return this.http.get(url);
+  }
+
+  getLibrosByIdUsuario(idUsuario: string): Observable<any> {
+    let url = this.base + "prestamos?id=" + idUsuario;
+    this.util.consola("CatalogoService", " (getLibrosByIdUsuario,req) " + url);
     return this.http.get(url);
   }
 }
