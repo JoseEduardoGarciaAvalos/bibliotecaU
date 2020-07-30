@@ -1,5 +1,5 @@
 <div>
     Busqueda
 </div>
-<input type="text" #campo/>
+<input [value]="valorCampoInicial" type="text" #campo/>
 <button (click)="buscar(campo.value)">Buscar</button>
