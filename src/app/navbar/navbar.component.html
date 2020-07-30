@@ -2,7 +2,7 @@
     <li>
         <a [routerLink]="['/catalogo','general']">Catalogo</a>
     </li>
-    <li>
+    <li *ngIf="auth.isLogin">
         <a [routerLink]="['/catalogo','prestamo']">Mis prestamos</a>
     </li>
 </ul>
