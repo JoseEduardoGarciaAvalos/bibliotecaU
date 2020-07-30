@@ -16,7 +16,12 @@ const routes: Routes = [
       {path: ":buscar", component: ListaComponent}
     ]
   },
-  { path: "prestamo", component: ListaComponent,data: {sublista:"prestamo"}, canActivate: [AuthGuardService]},
+  { path: "prestamo", data: {sublista:"prestamo"}, canActivate: [AuthGuardService],
+    children: [
+      {path: "", component: ListaComponent},
+      {path: ":buscar", component: ListaComponent}
+    ]
+  },
 ];
 
 @NgModule({
