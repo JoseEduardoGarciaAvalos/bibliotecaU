@@ -51,4 +51,10 @@ export class CatalogoService {
     this.util.consola("CatalogoService", " (getLibrosByIdUsuario,req) " + url);
     return this.http.get(url);
   }
+
+  patchPrestamo(idUsuario: string, idLibros: Array<string>){
+    let url = this.base + "prestamos/" + idUsuario;
+    this.util.consola("CatalogoService", " (patchPrestamo,req) " + url);
+    return this.http.patch(url, {_id_libros: idLibros});
+  }
 }

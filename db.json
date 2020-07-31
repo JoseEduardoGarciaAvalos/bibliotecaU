@@ -1,74 +1,105 @@
 {
-    "usuarios":[
-        {
-            "_id": "1",
-            "correo": "jose@gmail.com",
-            "password": "1234",
-            "nombre": "Jose",
-            "apellido": "García"
-        },
-        {
-            "_id": "2",
-            "correo": "rosa@gmail.com",
-            "password": "1234",
-            "nombre": "Rosa",
-            "apellido": "Avalos"
-        }
-    ],
-    "prestamos": [
-        {
-            "_id_usuario": "1",
-            "_id_libros": ["1", "2"]
-        }
-    ],
-    "libros": [
-        { "_id": "1",
-          "isbn": "123435434",
-          "nombre": "Java 10",
-          "autor": "Francisco",
-          "editoriales": ["ENI"]
-        },{
-          "_id": "2",
-          "isbn": "233435434",
-          "nombre": "angular 8",
-          "autor": "Rosa Avalos",
-          "editoriales": ["ENI"]
-        },{
-          "_id": "3",
-          "isbn": "243513235",
-          "nombre": "C++ Programación",
-          "autor": "Maria",
-          "editoriales": ["Alfaomega","Marcombo"]
-        },{
-          "_id": "4",
-          "isbn": "88888",
-          "nombre": "Aprendiendo algoritmos",
-          "autor": "Zonia",
-          "editoriales": ["Alfaomega"]
-        },{
-          "_id": "5",
-          "isbn": "112131",
-          "nombre": "Java programación",
-          "autor": "Pedro",
-          "editoriales": ["Macro", "RCLibros"]
-        },{
-          "_id": "6",
-          "isbn": "34356346",
-          "nombre": "Estructuras de datos",
-          "autor": "Pablo",
-          "editoriales": ["RCLibros"]
-        },{
-          "_id": "7",
-          "isbn": "35324124",
-          "nombre": "Programación web",
-          "autor": "Azucena",
-          "editoriales": ["Marcombo"]
-        },{
-          "_id": "8",
-          "isbn": "23124",
-          "nombre": "Ruby",
-          "autor": "Pablo",
-          "editoriales": ["Alfaomega", "RCLibros"]
-        }
+  "usuarios": [
+    {
+      "_id": "1",
+      "correo": "jose@gmail.com",
+      "password": "1234",
+      "nombre": "Jose",
+      "apellido": "García"
+    },
+    {
+      "_id": "2",
+      "correo": "rosa@gmail.com",
+      "password": "1234",
+      "nombre": "Rosa",
+      "apellido": "Avalos"
+    }
+  ],
+  "prestamos": [
+    {
+      "id": "1",
+      "_id_usuario": "1",
+      "_id_libros": [
+        "1",
+        "2"
       ]
+    }
+  ],
+  "libros": [
+    {
+      "_id": "1",
+      "isbn": "123435434",
+      "nombre": "Java 10",
+      "autor": "Francisco",
+      "editoriales": [
+        "ENI"
+      ]
+    },
+    {
+      "_id": "2",
+      "isbn": "233435434",
+      "nombre": "angular 8",
+      "autor": "Rosa Avalos",
+      "editoriales": [
+        "ENI"
+      ]
+    },
+    {
+      "_id": "3",
+      "isbn": "243513235",
+      "nombre": "C++ Programación",
+      "autor": "Maria",
+      "editoriales": [
+        "Alfaomega",
+        "Marcombo"
+      ]
+    },
+    {
+      "_id": "4",
+      "isbn": "88888",
+      "nombre": "Aprendiendo algoritmos",
+      "autor": "Zonia",
+      "editoriales": [
+        "Alfaomega"
+      ]
+    },
+    {
+      "_id": "5",
+      "isbn": "112131",
+      "nombre": "Java programación",
+      "autor": "Pedro",
+      "editoriales": [
+        "Macro",
+        "RCLibros"
+      ]
+    },
+    {
+      "_id": "6",
+      "isbn": "34356346",
+      "nombre": "Estructuras de datos",
+      "autor": "Pablo",
+      "editoriales": [
+        "RCLibros"
+      ]
+    },
+    {
+      "_id": "7",
+      "isbn": "35324124",
+      "nombre": "Programación web",
+      "autor": "Azucena",
+      "editoriales": [
+        "Marcombo"
+      ]
+    },
+    {
+      "_id": "8",
+      "isbn": "23124",
+      "nombre": "Ruby",
+      "autor": "Pablo",
+      "editoriales": [
+        "Alfaomega",
+        "RCLibros"
+      ]
+    }
+  ]
 }

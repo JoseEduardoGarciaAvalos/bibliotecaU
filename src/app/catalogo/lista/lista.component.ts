@@ -76,17 +76,31 @@ export class ListaComponent implements OnInit {
     }
   }
 
-  accionGenerica(event: any) {
+  accionGenerica(event: any, id_libro:string) {
     //Esta logueado
     if (this.auth.isLogin) {
       // FALTA Determinar si el libro ya lo tiene prestado
       event.target.disabled = true;
       this.util.consola("ListaComponent", event);
-      if (this.accion == "préstamo") {
-        this.util.consola("ListaComponent", " (accionGenerica, préstamo)");
-      } else {
-        this.util.consola("ListaComponent", " (accionGenerica, devolver)");
-      }
+
+      this.catalogoService.getLibrosByIdUsuario(this.auth.cliente._id).subscribe(res => {
+        if (res[0]) {
+          let id_libros = res[0]._id_libros as Array<string>
+          if (this.accion == "préstamo") {
+            id_libros.push(id_libro);
+            this.util.consola("ListaComponent", " (accionGenerica, préstamo)");
+            this.catalogoService.patchPrestamo(this.auth.cliente._id, id_libros).subscribe(
+              (res) => { this.util.notificacion("Se ha prestado el libro", 3); }
+            );
+          } else {
+            id_libros = id_libros.filter( id => id != id_libro);
+            this.util.consola("ListaComponent", " (accionGenerica, devolver)");
+            this.catalogoService.patchPrestamo(this.auth.cliente._id, id_libros).subscribe(
+              (res) => { this.util.notificacion("Se ha devuelto el libro", 3); }
+            );
+          }
+        }
+      });
     } else {
       this.util.notificacion("Necesita estar logueado", 3);
     }
