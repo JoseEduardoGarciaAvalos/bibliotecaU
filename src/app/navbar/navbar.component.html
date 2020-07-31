@@ -1,5 +1,8 @@
 <ul>
     <li>
+        <a routerLink="home">Inicio</a>
+    </li>
+    <li>
         <a [routerLink]="['/catalogo','general']">Catalogo</a>
     </li>
     <li *ngIf="auth.isLogin">
