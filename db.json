@@ -17,7 +17,7 @@
     ],
     "prestamos": [
         {
-            "_id_usuarios": "1",
+            "_id_usuario": "1",
             "_id_libros": ["1", "2"]
         }
     ],
