@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NotificacionComponent } from './notificacion/notificacion.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { NotificacionComponent } from './notificacion/notificacion.component';
     AppComponent,
     AuthComponent,
     NavbarComponent,
-    NotificacionComponent
+    NotificacionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
