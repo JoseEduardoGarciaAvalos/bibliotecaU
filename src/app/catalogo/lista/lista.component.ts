@@ -90,13 +90,19 @@ export class ListaComponent implements OnInit {
             id_libros.push(id_libro);
             this.util.consola("ListaComponent", " (accionGenerica, préstamo)");
             this.catalogoService.patchPrestamo(this.auth.cliente._id, id_libros).subscribe(
-              (res) => { this.util.notificacion("Se ha prestado el libro", 3); }
+              (res) => { 
+                this.util.notificacion("Se ha prestado el libro", 3);
+                this.spliceLibros(id_libro);
+              }
             );
           } else {
             id_libros = id_libros.filter( id => id != id_libro);
             this.util.consola("ListaComponent", " (accionGenerica, devolver)");
             this.catalogoService.patchPrestamo(this.auth.cliente._id, id_libros).subscribe(
-              (res) => { this.util.notificacion("Se ha devuelto el libro", 3); }
+              (res) => { 
+                this.util.notificacion("Se ha devuelto el libro", 3);
+                this.spliceLibros(id_libro);
+              }
             );
           }
         }
@@ -109,6 +115,14 @@ export class ListaComponent implements OnInit {
 
   setSelectedLibro(id: string) {
     this.selectLibroId = id;
+  }
+
+  private spliceLibros(id: string){
+    setTimeout( () => {
+      this.setSelectedLibro = null;
+      const index = this.libros.findIndex( libro => libro._id == id);
+      this.libros.splice(index,1);
+    },3000);
   }
 
 }
