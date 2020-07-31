@@ -10,6 +10,7 @@ import { AuthComponent } from './auth/auth.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NotificacionComponent } from './notificacion/notificacion.component';
 import { HomeComponent } from './home/home.component';
+import { Page404Component } from './page404/page404.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     AuthComponent,
     NavbarComponent,
     NotificacionComponent,
-    HomeComponent
+    HomeComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
